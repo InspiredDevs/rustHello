@@ -1,38 +1,49 @@
-// Primitive data types
-// int, float, bool, char
+// Compound Data Types
+// arrays, tuples, slices and strings (slice string)
 
-// Integer
-// Rust has signed (+ and -) and unsigned integer (only+) types of different sizes.
-// i8, i16, i32, i64, i128: Signed integers.
-// u8, u16, u32, u64, u128: Signed integers.
-
+// Arrays
 fn main() {
-    let x: i32 = -42;
-    let y: u64 = 100;
-    println!("Signed Integer: {}", x);
-    println!("Unsigned Integer: {}", y);
+    let numbers: [i32; 5] = [1,2,3,4,5];
+    println!("Number Array: {:?}", numbers);
+    // let mix = [1,2,"Apple", true];
+    // println!("Mixed Array: {:?}", mix);
+    let fruits: [&str; 3] = ["Apple", "Banana", "Orange"];
+    println!("Fruits Array: {:?}", fruits);
+    println!("Fruits Array 1st element: {}", fruits[0]);
+    println!("Fruits Array 2nd element: {}", fruits[1]);
+    println!("Fruits Array 3rd element: {}", fruits[2]);
 
-// diff bw i32 (32 bits) and i63(64 bita)
-// range :
-// i32 - 214783647
-// i64 - 9223372036854775807
-let e: i32 = 214783647;
-let i: i64 = 9223372036854775807;
-println!("Maximum value of i32: {}", e);
-println!("Maximum value of i64: {}", i);
-// =====================================
+    // ////////////////////////////////////////////
 
-// Floats[Floating Point Types]
-// Floats
-// f32, f64
-let pi: f64 = 3.14;
-println!("Value of Pi: {}", pi);
+    // Tuples
+    let human = ("Alice".to_string(), 30, false);
+    println!("Human Tuple: {:?}", human);
 
-// Boolean Values: true of false
-let is_snowing: bool = true;
-println!("Is it snowing? {}", is_snowing);
+    let my_mix_tuple = ("Kratos", 23, true, [1,2,3,4,5]);
+    println!("My Mix Tuple: {:?}", my_mix_tuple);
 
-    // Character Type - char
-    let letter: char = 'a';
-    println!("First letter of the alphabet: {}", letter);
+    // Slices:[1,2,3,4,5]
+    let number_slices:&[i32] = &[1,2,3,4,5];
+    println!("Number Slice: {:?}", number_slices);
+
+    let animal_slices:&[&str] = &["Joseph", "Jonathan", "Emmanuel"];
+    println!("Animal Slice: {:?}", animal_slices);
+
+    let book_slices :&[&String] = &[&"Harry Potter".to_string(), &"ZEN".to_string(), &"IT".to_string()];
+    println!("Book Slice: {:?}", book_slices);
+
+    // Strings Vs String Slices (&str)
+    // String [ growable, mutable, owned string type ]
+    let mut stone_cold: String = String::from("Hell, ");
+    stone_cold.push_str("Yeah!");
+    println!("Stone Cold Says: {} ", stone_cold);
+
+    // B- Estr (String Slice)
+    let string: String = String::from("Hello, World");
+    let slice: &str = &string[0..5];
+    println!("Slice Value: {}", slice);
+}
+
+fn print() {
+    println!("SLICE: {}", slice);
 }
